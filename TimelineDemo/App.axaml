@@ -1,0 +1,12 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:TimelineDemo"
+             x:Class="TimelineDemo.App">
+  <Application.DataTemplates>
+    <local:ViewLocator />
+  </Application.DataTemplates>
+  <Application.Styles>
+    <FluentTheme Mode="Light" />
+    <StyleInclude Source="/Controls/KeyFramesControl.axaml" />
+  </Application.Styles>
+</Application>

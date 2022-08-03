@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:TimelineDemo.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:TimelineDemo.Controls"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="TimelineDemo.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Width="800" Height="600" WindowStartupLocation="CenterScreen"
+        Title="TimelineDemo">
+
+  <Design.DataContext>
+    <vm:MainWindowViewModel />
+  </Design.DataContext>
+
+  <Grid RowDefinitions="*,200,Auto">
+  
+    <Border Grid.Row="0" Background="Red" Width="100" Height="100" IsVisible="False">
+      <Border.Styles>
+        <Style Selector="Border.animate">
+          <Style.Animations>
+            <Animation Duration="0:0:5" IterationCount="Infinite">
+              <KeyFrame Cue="0%">
+                <Setter Property="(RotateTransform.Angle)" Value="0" />
+              </KeyFrame>
+              <KeyFrame Cue="100%">
+                <Setter Property="(RotateTransform.Angle)" Value="360" />
+              </KeyFrame>
+            </Animation>
+          </Style.Animations>
+        </Style>
+      </Border.Styles>
+    </Border>
+
+    <!-- <controls:TimelineControl Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" /> -->
+
+    <controls:KeyFramesControl Grid.Row="1" 
+                               Name="KeyFramesControl"
+                               Value="40" 
+                               Range="100"
+                               Width="400" 
+                               Background="LightGray"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" />
+    <TextBox Grid.Row="2" 
+             Text="{Binding #KeyFramesControl.Value, Mode=TwoWay}"
+             Width="400" />
+  </Grid>
+
+</Window>
