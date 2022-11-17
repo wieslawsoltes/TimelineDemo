@@ -25,13 +25,13 @@ public abstract partial class KeyFrameAnimationViewModel<T> : ViewModelBase
     [ObservableProperty] private AnimationIterationBehavior _iterationBehavior;
     [ObservableProperty] private int _iterationCount = 1;
     [ObservableProperty] private AnimationStopBehavior _stopBehavior;
-    [ObservableProperty] private ObservableCollection<KeyFrameViewModel<T>> _keyFrames;
+    [ObservableProperty] private ObservableCollection<KeyFrameViewModel<T>>? _keyFrames;
 }
 
 public abstract partial class KeyFrameViewModel<T> : ViewModelBase
 {
     [ObservableProperty] private float _normalizedProgressKey;
-    [ObservableProperty] private T _value;
+    [ObservableProperty] private T? _value;
     //[ObservableProperty] private Expression Expression;
     //[ObservableProperty] private EasingViewModel EasingFunction;   
 }
